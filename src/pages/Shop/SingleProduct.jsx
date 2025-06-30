@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import PopularPost from "./PopularPost";
 import Tags from "./Tags";
-import Rating from "../../components/Sidebar/rating";
+import Rating from "../../components/Sidebar/Rating";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -25,10 +25,8 @@ const SingleProduct = () => {
       .then((data) => setProduct(data));
   }, []);
 
-
   const result = product.filter((p) => p.id === id);
   return (
-    
     <div>
       <PageHeader title={"OUR SHOP SINGLE"} curPage={"Shop / Single Product"} />
       <div className="shop-single padding-tb aside-bg">
@@ -75,15 +73,15 @@ const SingleProduct = () => {
                     <div className="col-md-6 col-12">
                       <div className="post-content">
                         <div>
-                          {
-                            result.map(item => <ProductDisplay item={item} key={item.id}/>)
-                          }
+                          {result.map((item) => (
+                            <ProductDisplay item={item} key={item.id} />
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="review">
                   <Review />
                 </div>
